@@ -10,8 +10,9 @@ judge compares entries pairwise by screenshots + a dossier outline; places
 go by win rate. Blind rounds: next cutoff Fri 2026-11-27 15:57 WIB;
 deadline Sun 2026-11-29 21:57 WIB.
 
-- **Entry built and verified 2026-11-26 ~22:30 WIB, NOT submitted.**
-  Site: HomeBase — the Parker household's November 2026 budget.
+- **Visual redesign pass 2026-11-27 ~13:20-13:45 WIB (this session, Sep: "jangan kirim apa adanya"):** palette changed teal/green + cream → deep ink `#23272f` header/hero + burnt coral `#c2502e` accent + warm paper `#f6f1e7`; serif headings (Georgia); header is now one dark row (brand left, nav right, coral underline for active); dashboard 4-stat-card row replaced by a dark hero panel (big Left-to-spend $2,588 + spent-vs-planned bar + 3 inline stats); panels are square with an ink top rule; donut/trend split 5fr/7fr; category colors in data.js reworked warm/earthy (no green dominance). Content, figures, math, routes, controls UNCHANGED. Screenshots retaken (01 93,765 / 02 95,709 / 03 95,619 / 04 43,228 bytes, all ≤256 KiB, 0 console errors); controls verified live (add-transaction, budget-edit incl. reset, goal-add; totals re-compute). Dossier Totals now "first load 5 files, 12535 bytes gzip-9 (37644 raw)". NOT uploaded, NOT resubmitted — parent handles repo upload + bundle + submit after Sep reviews. Local git HEAD after redesign: see git log.
+- **Entry SUBMITTED 2026-11-27 ~12:57 WIB** (Sep's order "HomeBase coba kirim lagi", as-is, no redesign): submission `01a21b93-bc0f-771f-8973-1d1ea0cd2845`, claim code `AF-AS831-S3P63-VSBBV-QJMBP`, repo @ `6e598a77`, bundle `~/workspace/tmp/budget-bundle.tar.gz` sha256 `4c33a5dbf1573f3da594fcf226301365c7bb27a414baded9f15afb43ae3693b2`. Server status: scored, outcome not decided yet, ALL checks pass (incl. repo_readme and repo_about). Counts from round 1 (cutoff Fri 2026-11-27 15:57 WIB); deadline Sun 2026-11-29 21:57 WIB. Record: `submission.json`. Builder session `2578e690-fb41-4ac0-baad-5d4415c239a1` (1 usage row). Local git HEAD `449c2f5` (synthetic; submitted commit is the remote `6e598a77`).
+  - Pre-submit fix (parent, 2026-11-27): the repo About description was summary-only and missed the template's "Built by an AI agent..." suffix (the stats repo HAS the suffix and passed). Fixed via browser web UI and re-verified from the live page (description now full, website + topics unchanged).
   Screenshots taken with the CDP driver (`/tmp/shot.mjs`) after fixing
   Chrome 157's Local Network Access block with the
   `--ip-address-space-overrides=127.0.0.1:8080=public,[::1]:8080=public`
@@ -25,11 +26,16 @@ deadline Sun 2026-11-29 21:57 WIB.
   4 screenshots, all within size/dimension limits. All 5 routes render
   with no console errors; add-transaction, budget-edit and goal-add
   controls verified live in the browser.
-- **Still to do (parent agent, needs the live browser):** create the
-  public GitHub repo `makefun-budget-site` under Anonone404, upload the
-  files via the browser web UI, set About (homepage + topics per
-  Requirements above), then show Sep the entry. DO NOT SUBMIT to
-  make.fun until Sep approves.
+- **Still to do (parent agent):** re-check `makefun rounds best-household-budget-site-20261126-1457` after each blind round and report Sep's rank/score. Do not submit a second entry unless Sep asks.
+- **GitHub repo (created by the parent agent 2026-11-26 ~22:37 WIB):**
+  https://github.com/Anonone404/makefun-budget-site, public, HEAD
+  6e598a77e71fe0380d3e13521e4b217b3e305a51 (5 commits, one per folder
+  upload). About set: description, homepage, topics
+  makefun/ai-agents/bounties/code. SUBMITTED 2026-11-27 (see above).
+  Note: GitHub's license detection shows "Other" for this LICENSE file,
+  same as the stats-site repo; the file itself is the standard MIT text
+  and the stats entry passed the server license check with the identical
+  file, so this is a detection quirk, not a problem.
 - **Kit:** `~/workspace/scripts/makefun-watch/kits/best-household-budget-site-20261126-1457-kit/`
   (competition.yaml + RULES.txt read; starter/ is a layout reference only,
   never submitted unchanged — its dossier is a house site).
