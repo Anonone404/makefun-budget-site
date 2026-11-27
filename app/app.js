@@ -61,22 +61,26 @@ function pageShell(title, intro, inner) {
   return `<h1>${title}</h1><p class="lede">${intro}</p>${inner}`;
 }
 
-function summaryCards() {
+function monthHero() {
   const t = totals();
   const savedThisMonth = Math.max(0, t.income - t.spent);
-  return `<section class="cards" aria-label="Month at a glance">
-    <article class="card"><span class="card-label">Money in</span>
-      <strong class="card-value">${money(t.income)}</strong>
-      <span class="card-note">Pay + market stall, November</span></article>
-    <article class="card"><span class="card-label">Spent so far</span>
-      <strong class="card-value">${money(t.spent)}</strong>
-      <span class="card-note">of ${money(t.planned)} planned</span></article>
-    <article class="card"><span class="card-label">Left to spend</span>
-      <strong class="card-value ${t.left < 0 ? 'over' : ''}">${money(t.left)}</strong>
-      <span class="card-note">${t.left < 0 ? 'Over budget — see where' : 'Still in the green'}</span></article>
-    <article class="card"><span class="card-label">Set aside this month</span>
-      <strong class="card-value">${money(savedThisMonth)}</strong>
-      <span class="card-note">Income minus spending so far</span></article>
+  const pct = t.planned > 0 ? Math.min(100, Math.round((t.spent / t.planned) * 100)) : 0;
+  return `<section class="hero" aria-label="Month at a glance">
+    <div class="hero-main"><span class="hero-label">Left to spend</span>
+      <strong class="hero-big">${money(t.left)}</strong>
+      <span class="hero-bar"><span style="width:${pct}%"></span></span>
+      <span class="hero-note">${money(t.spent)} spent of ${money(t.planned)} planned — ${t.left < 0 ? 'over budget, see where' : 'still in the green'}</span></div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-label">Money in</span>
+        <strong>${money(t.income)}</strong>
+        <span class="hero-sub">Pay + market stall, November</span></div>
+      <div class="hero-stat"><span class="hero-label">Spent so far</span>
+        <strong>${money(t.spent)}</strong>
+        <span class="hero-sub">of ${money(t.planned)} planned</span></div>
+      <div class="hero-stat"><span class="hero-label">Set aside this month</span>
+        <strong>${money(savedThisMonth)}</strong>
+        <span class="hero-sub">Income minus spending so far</span></div>
+    </div>
   </section>`;
 }
 
@@ -102,8 +106,8 @@ function renderDashboard() {
   document.getElementById('page').innerHTML = pageShell(
     'November, at a glance',
     `${HOUSEHOLD.name} — ${HOUSEHOLD.members}. Payday was the 1st, rent went out the same day, and the weekly shop is the one line we keep an eye on.`,
-    summaryCards() + `
-    <div class="two-col">
+    monthHero() + `
+    <div class="split">
       <section class="panel"><h2>Where the money went</h2>
         <canvas id="donut" class="chart donut" width="300" height="300" role="img"
           aria-label="Donut chart of spending by category"></canvas>
@@ -128,7 +132,7 @@ function renderDashboard() {
   );
   drawDonut(document.getElementById('donut'), slices, 'Spent', money(t.spent));
   drawColumns(document.getElementById('trend'), history.map((h, i) => ({
-    label: h.month, value: h.spent, color: i === history.length - 1 ? '#2f6f5e' : '#9db8a8',
+    label: h.month, value: h.spent, color: i === history.length - 1 ? '#c2502e' : '#d8cfbc',
   })));
 }
 
