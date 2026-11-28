@@ -30,7 +30,7 @@ export function drawDonut(canvas, slices, centerLabel, centerValue) {
   if (total <= 0) {
     ctx.beginPath();
     ctx.arc(cx, cy, outer, 0, Math.PI * 2);
-    ctx.fillStyle = '#e8e4db';
+    ctx.fillStyle = '#e9e4d2';
     ctx.fill();
   } else {
     let angle = -Math.PI / 2;
@@ -50,11 +50,11 @@ export function drawDonut(canvas, slices, centerLabel, centerValue) {
     ctx.fill();
     ctx.globalCompositeOperation = 'source-over';
   }
-  ctx.fillStyle = '#6d675c';
+  ctx.fillStyle = '#6f6e5c';
   ctx.font = '12px system-ui, sans-serif';
   ctx.textAlign = 'center';
   ctx.fillText(centerLabel, cx, cy - 4);
-  ctx.fillStyle = '#23272f';
+  ctx.fillStyle = '#2a3325';
   ctx.font = 'bold 20px system-ui, sans-serif';
   ctx.fillText(centerValue, cx, cy + 18);
 }
@@ -71,16 +71,16 @@ export function drawBars(canvas, items) {
   ctx.font = '13px system-ui, sans-serif';
   items.forEach((item, i) => {
     const y = i * rowHeight + 8;
-    ctx.fillStyle = '#23272f';
+    ctx.fillStyle = '#2a3325';
     ctx.textAlign = 'left';
     ctx.textBaseline = 'middle';
     ctx.fillText(item.label, 0, y + 10);
     const barWidth = Math.max(2, (item.value / max) * barArea);
-    ctx.fillStyle = '#ece5d3';
+    ctx.fillStyle = '#e9e4d2';
     ctx.fillRect(labelWidth, y, barArea, 20);
     ctx.fillStyle = item.color;
     ctx.fillRect(labelWidth, y, barWidth, 20);
-    ctx.fillStyle = '#23272f';
+    ctx.fillStyle = '#2a3325';
     ctx.textAlign = 'right';
     ctx.fillText(money(item.value), width, y + 10);
   });
@@ -97,7 +97,7 @@ export function drawColumns(canvas, items) {
   const plotHeight = height - padTop - padBottom;
   const slot = width / items.length;
   const barWidth = Math.min(44, slot * 0.55);
-  ctx.strokeStyle = '#ddd5c3';
+  ctx.strokeStyle = '#d8d2bd';
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.moveTo(0, height - padBottom + 0.5);
@@ -112,9 +112,9 @@ export function drawColumns(canvas, items) {
     const y = height - padBottom - barHeight;
     ctx.fillStyle = item.color;
     ctx.fillRect(x - barWidth / 2, y, barWidth, barHeight);
-    ctx.fillStyle = '#23272f';
+    ctx.fillStyle = '#2a3325';
     ctx.fillText(money(item.value), x, y - 11);
-    ctx.fillStyle = '#6d675c';
+    ctx.fillStyle = '#6f6e5c';
     ctx.fillText(item.label, x, height - padBottom + 11);
   });
 }
