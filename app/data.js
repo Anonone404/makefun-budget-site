@@ -22,14 +22,14 @@ export const INCOME = [
 
 // Planned monthly budget per category, in dollars.
 export const BUDGETS = [
-  { id: 'housing', label: 'Housing', planned: 1450, color: '#b3402e', note: 'Rent + renter insurance' },
-  { id: 'groceries', label: 'Groceries', planned: 720, color: '#d97b4f', note: 'Weekly shop, ~$180 a week' },
-  { id: 'utilities', label: 'Utilities', planned: 310, color: '#5b8dbf', note: 'Power, water, internet, phones' },
-  { id: 'transport', label: 'Transport', planned: 380, color: '#e9a23b', note: 'Fuel, bus passes, car service' },
-  { id: 'kids', label: 'Kids & school', planned: 340, color: '#7a5c9e', note: 'Lunches, clubs, shoes that never last' },
-  { id: 'health', label: 'Health', planned: 210, color: '#c25e7e', note: 'Prescriptions, dentist, glasses' },
-  { id: 'dining', label: 'Eating out', planned: 160, color: '#a67c52', note: 'One pizza night a week, roughly' },
-  { id: 'fun', label: 'Fun & treats', planned: 120, color: '#4a7a8c', note: 'Movies, books, the odd takeaway coffee' },
+  { id: 'housing', label: 'Housing', planned: 1450, color: '#2d5a3d', note: 'Rent + renter insurance' },
+  { id: 'groceries', label: 'Groceries', planned: 720, color: '#c98a1b', note: 'Weekly shop, ~$180 a week' },
+  { id: 'utilities', label: 'Utilities', planned: 310, color: '#5b7d8a', note: 'Power, water, internet, phones' },
+  { id: 'transport', label: 'Transport', planned: 380, color: '#a66a2e', note: 'Fuel, bus passes, car service' },
+  { id: 'kids', label: 'Kids & school', planned: 340, color: '#7fae7f', note: 'Lunches, clubs, shoes that never last' },
+  { id: 'health', label: 'Health', planned: 210, color: '#c25e4e', note: 'Prescriptions, dentist, glasses' },
+  { id: 'dining', label: 'Eating out', planned: 160, color: '#d9b45b', note: 'One pizza night a week, roughly' },
+  { id: 'fun', label: 'Fun & treats', planned: 120, color: '#4a6b4f', note: 'Movies, books, the odd takeaway coffee' },
 ];
 
 // What the household actually spent so far this month, one row each.
