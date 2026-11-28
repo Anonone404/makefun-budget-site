@@ -132,7 +132,7 @@ function renderDashboard() {
   );
   drawDonut(document.getElementById('donut'), slices, 'Spent', money(t.spent));
   drawColumns(document.getElementById('trend'), history.map((h, i) => ({
-    label: h.month, value: h.spent, color: i === history.length - 1 ? '#c2502e' : '#d8cfbc',
+    label: h.month, value: h.spent, color: i === history.length - 1 ? '#2d5a3d' : '#cfd6c2',
   })));
 }
 
@@ -163,7 +163,7 @@ function renderBudget() {
           value="${planned}" data-budget="${b.id}"></td>
       <td>${money(spent)}</td>
       <td class="${left < 0 ? 'over' : ''}">${left < 0 ? '−' : ''}${money(Math.abs(left))} ${left < 0 ? 'over' : 'left'}</td>
-      <td><span class="bar"><span style="width:${Math.min(100, pct)}%;${pct > 100 ? 'background:#b3402e' : ''}"></span></span> ${pct}%</td>
+      <td><span class="bar"><span style="width:${Math.min(100, pct)}%;${pct > 100 ? 'background:#9e3b2e' : ''}"></span></span> ${pct}%</td>
     </tr>`;
   }).join('');
   const t = totals();
